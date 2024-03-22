@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Menu from "../components/menu";
 import SearchBar from "../components/areaSearch";
 import Sidebar from "../components/sidebar";
+import Post from "../components/post";
 
 function Home() {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -21,7 +22,9 @@ function Home() {
         />
         <Menu isOpen={menuIsOpen} updateMenu={setMenuIsOpen}/>
       </header>
-      <div className="content"></div>
+      <div className="content">
+        <Post post={{ title: "Sorsa", location: "Helsinki", score: 0 }} />
+      </div>
       </main>
       {menuIsOpen && <Sidebar />}
     </div>
