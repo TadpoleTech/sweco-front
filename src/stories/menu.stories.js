@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Menu from '../components/menu'; // Assuming Menu component is in the same directory
+import '../App.css'
 
 export default {
   title: 'Menu',

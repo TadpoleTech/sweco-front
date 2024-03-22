@@ -1,5 +1,6 @@
 import React from 'react';
 import Sidebar from '../components/sidebar';
+import '../App.css'
 
 export default {
   title: 'Sidebar',
