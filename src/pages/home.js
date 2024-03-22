@@ -2,10 +2,11 @@ import "../styles/home.css";
 import React, { useState } from "react";
 import Menu from "../components/menu";
 import SearchBar from "../components/areaSearch";
+import Sidebar from "../components/sidebar";
 
 function Home() {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
-  const sidebar = (<nav>kakka</nav>);
+  
   return (
     <div className="home">
       <main>
@@ -16,7 +17,7 @@ function Home() {
       </header>
       <div className="content"></div>
       </main>
-      {menuIsOpen && sidebar}
+      {menuIsOpen && <Sidebar />}
     </div>
   );
 }
