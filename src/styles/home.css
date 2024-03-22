@@ -1,6 +1,6 @@
 
 header {
-  background-color: rgb(239, 155, 155);
+  background-color: var(--header-color);
   min-height: 100px;
   display: flex;
   justify-content: space-between;
@@ -8,8 +8,8 @@ header {
 }
 
 .content {
-  background-color: rgb(191, 145, 104);
-  height: 100vh;
+  background-color: var(--background-color);
+  height: 80vh;
 }
 
 .home {
