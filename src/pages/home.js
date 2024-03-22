@@ -1,5 +1,6 @@
 import "../styles/home.css";
 import React from "react";
+import Menu from "../components/menu";
 
 function Home() {
   return (
@@ -7,7 +8,7 @@ function Home() {
       <header className="header">
         <span>logo</span>
         <span>Searchbar</span>
-        <span>Hamburgir</span>
+        <Menu/>
       </header>
       <div className="content"></div>
     </div>
