@@ -1,4 +1,3 @@
-import { useState } from "react";
 import SelectSearch from "react-select-search";
 import "../styles/areaSearch.css";
 
@@ -25,25 +24,30 @@ const regions = {
   ],
 };
 
-function SearchBar() {
-  const [selectedCity, setSelectedCity] = useState("helsinki");
+function SearchBar(props) {
 
   const handleCityChange = (value) => {
-    setSelectedCity(value);
+    props.onCityChange(value);
+  }
+
+  const handleSubAreaChange = (value) => {
+    props.onSubAreaChange(value);
   }
 
   return (
     <div>
       <SelectSearch
         options={cities}
-        value={selectedCity}
-        name="language"
-        placeholder="Choose your language"
+        value={props.city}
+        name="city"
+        placeholder="Choose your city"
         onChange={handleCityChange}
       /><SelectSearch
-        options={regions[selectedCity]}
-        name="language"
-        placeholder="Choose your language"
+        options={regions[props.city]}
+        value={props.subArea}
+        name="subarea"
+        onChange={handleSubAreaChange}
+        placeholder="Choose your subarea"
       />
     </div>
   );

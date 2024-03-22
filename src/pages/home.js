@@ -6,13 +6,19 @@ import Sidebar from "../components/sidebar";
 
 function Home() {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
-  
+  const [selectedCity, setSelectedCity] = useState("helsinki");
+  const [selectedSubArea, setSelectedSubArea] = useState(null);
   return (
     <div className="home">
       <main>
       <header className="header">
         <span>logo</span>
-        <SearchBar/>
+        <SearchBar
+          city={selectedCity}
+          onCityChange={setSelectedCity}
+          subArea={selectedSubArea}
+          onSubAreaChange={setSelectedSubArea}
+        />
         <Menu isOpen={menuIsOpen} updateMenu={setMenuIsOpen}/>
       </header>
       <div className="content"></div>
