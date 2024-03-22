@@ -1,0 +1,13 @@
+
+header {
+  background-color: red;
+  min-height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content {
+  background-color: yellow;
+  height: 100vh;
+}
