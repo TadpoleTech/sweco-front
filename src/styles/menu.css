@@ -1,4 +1,8 @@
 .hamburger-menu {
     margin: 15px;
+    transition: transform 0.5s;
 }
 
+.open {
+    transform: rotate(90deg);
+}
