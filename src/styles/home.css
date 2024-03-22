@@ -12,3 +12,10 @@ header {
   height: 100vh;
 }
 
+.home {
+  display: flex;
+}
+
+main {
+  width: 100%;
+}
