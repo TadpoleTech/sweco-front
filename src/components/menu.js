@@ -5,9 +5,9 @@ import "../styles/menu.css";
 function Menu(props) {
   let burger;
   if (props.isOpen) {
-    burger =  <RxHamburgerMenu className="open"/>
+    burger =  <RxHamburgerMenu size={30} className="open"/>
   } else {
-    burger =  <RxHamburgerMenu className="closed"/>
+    burger =  <RxHamburgerMenu size={30} className="closed"/>
   }
 
   function onMenuClick() {
