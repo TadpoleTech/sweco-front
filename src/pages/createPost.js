@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Button, Form, Input, Space } from 'antd';
 import { createPost } from "../api";
 
+import "../styles/createPost.css";
+
 function CreatePost() {
   const [location, setLocation] = useState({ lat: null, lon: null });
 
@@ -57,7 +59,7 @@ function CreatePost() {
           onFinishFailed={onFinishFailed}
           autoComplete="off"
         >
-          <Space.Compact style={{ width: '50%' }}>
+          <Space.Compact style={{ width: '100%' }}>
             <Form.Item
               name="title"
               rules={[
