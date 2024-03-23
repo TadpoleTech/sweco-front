@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 
 function SearchBar(props) {
   const [cities, setCities] = useState([]);
-  const [regions, setRegions] = useState({});
   const [suburbs, setSuburbs] = useState([]);
 
   useEffect(() => {
@@ -29,7 +28,7 @@ function SearchBar(props) {
     // Fetch suburbs based on the selected city
     try {
       const response = await fetchSuburbs(value);
-      setSuburbs(response);
+      setSuburbs([...new Set(response)]);
     } catch (error) {
       console.error('Error fetching suburbs:', error);
     }
