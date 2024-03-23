@@ -15,7 +15,7 @@ function MenuSidebar() {
           <Sidebar.Item href="#" icon={HiUser} className="sidebar-item">
             Profile
           </Sidebar.Item>
-          <Sidebar.Collapse icon={HiAnnotation} label="History" className="sidebar-collapse">
+          <Sidebar.Collapse className="sidebar-history" icon={HiAnnotation} label="History" className="sidebar-collapse">
             <Sidebar.Item href="pages/yourInformation.js" className="sidebar-item">Information</Sidebar.Item>
             <Sidebar.Item href="pages/yourPosts.js" className="sidebar-item">Posts</Sidebar.Item>
             <Sidebar.Item href="pages/yourVotedPosts.js" className="sidebar-item">Voted posts</Sidebar.Item>

@@ -27,7 +27,11 @@
   }
   
   .sidebar-collapse:hover {
-    background-color: transparent;
+    background-color: #edeeee !important;
+    border: unset;
+    font-size: unset;
+    background-color: unset;
+    outline: revert;
   }
   
   .sidebar-icon {
@@ -39,4 +43,13 @@
     font-weight: bold;
     color: #007bff;
   }
-  
+
+.sidebar-collapse {
+    all: unset;
+    padding: 15px; 
+    padding-left: 0px;
+}
+
+li {
+  list-style: none;
+}
