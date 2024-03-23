@@ -69,7 +69,7 @@ function SearchBar(props) {
         search={true}
         value={props.city}
         name="city"
-        placeholder="Choose your city"
+        placeholder="City"
         onChange={handleCityChange}
       />
       <SelectSearch
@@ -78,7 +78,7 @@ function SearchBar(props) {
         value={props.subArea}
         name="subarea"
         onChange={handleSubAreaChange}
-        placeholder="Choose your suburb"
+        placeholder="Suburb"
       />
     </div>
   );
