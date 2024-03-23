@@ -1,13 +1,13 @@
 import React from "react";
+import { GoPlus } from "react-icons/go";
 import "../styles/createButton.css";
 
-function createButton(props) {
+function CreateButton(props) {
   return (
-    <div className="create-board">
-      <button onClick={() => {}}>
+      <button className="create-board" onClick={() => {console.log("asdf")}}>
+        <GoPlus size={60} />
       </button>
-    </div>
   );
 }
 
-export default createButton;
+export default CreateButton;

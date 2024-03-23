@@ -4,6 +4,7 @@ import Menu from "../components/menu";
 import SearchBar from "../components/areaSearch";
 import Sidebar from "../components/sidebar";
 import Post from "../components/post";
+import CreateButton from "../components/createButton";
 
 import * as api from "../api";
 
@@ -24,6 +25,7 @@ function Home() {
 
   return (
     <div className="home">
+      <CreateButton />
       <main>
         <header className="header">
           <span>logo</span>

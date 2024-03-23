@@ -1,0 +1,20 @@
+.create-board {
+  width: 128px;
+  height: 128px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #f4f4f4;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: var(--highlight-color);
+  transition: transform 0.2s;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.create-board:hover {
+  transform: scale(1.1);
+}
