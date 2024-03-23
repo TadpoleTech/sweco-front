@@ -1,4 +1,3 @@
-
 import SelectSearch from "react-select-search";
 import "../styles/areaSearch.css";
 import React, { useEffect, useState } from "react";
@@ -6,6 +5,7 @@ import React, { useEffect, useState } from "react";
 function SearchBar(props) {
   const [cities, setCities] = useState([]);
   const [regions, setRegions] = useState({});
+  const [suburbs, setSuburbs] = useState([]);
 
   useEffect(() => {
     const fetchCities = async () => {
@@ -24,8 +24,39 @@ function SearchBar(props) {
     fetchCities();
   }, []);
 
-  const handleCityChange = (value) => {
+  const handleCityChange = async (value) => {
     props.onCityChange(value);
+    // Fetch suburbs based on the selected city
+    try {
+      const response = await fetchSuburbs(value);
+      setSuburbs(response);
+    } catch (error) {
+      console.error('Error fetching suburbs:', error);
+    }
+  };
+
+  const fetchSuburbs = async (city) => {
+    try {
+      const response = await fetch("https://overpass-api.de/api/interpreter", {
+        method: "POST",
+        body: "data=" + encodeURIComponent(`
+          [out:json][timeout:3000];
+          area["name"="${city}"]->.searchArea;
+          (
+            nwr[place="town"](area.searchArea);
+            nwr[place="suburb"](area.searchArea);
+          );
+          out geom;
+        `)
+      });
+      if (!response.ok) {
+        throw new Error('Failed to fetch suburbs');
+      }
+      const data = await response.json();
+      return data.elements.map(element => element.tags.name);
+    } catch (error) {
+      throw new Error('Error fetching suburbs:', error);
+    }
   };
 
   const handleSubAreaChange = (value) => {
@@ -43,12 +74,12 @@ function SearchBar(props) {
         onChange={handleCityChange}
       />
       <SelectSearch
-        options={regions[props.city] || []}
+        options={suburbs.map(suburb => ({ name: suburb, value: suburb }))}
         search={true}
         value={props.subArea}
         name="subarea"
         onChange={handleSubAreaChange}
-        placeholder="Choose your subarea"
+        placeholder="Choose your suburb"
       />
     </div>
   );
