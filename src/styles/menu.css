@@ -2,6 +2,7 @@
     background: transparent;
     border: none;
     cursor: pointer;
+    margin: 15px;
 }
 
 .hamburger-menu button:focus {
@@ -10,7 +11,7 @@
 
 .open {
     transform: rotate(90deg);
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
 }
 
 .hamburger-menu button {
@@ -19,6 +20,5 @@
   }
 
 .closed {
-  transform: rotate(0deg);
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease;
 }
