@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Input, Select, Space } from 'antd';
+import { Button, Form, Input, Space } from 'antd';
 import { createPost } from "../api";
 
 function CreatePost() {
@@ -18,19 +18,20 @@ function CreatePost() {
     }
   }, []);
 
-  const submit = (e) => {
-    e.preventDefault();
-
-    const subject = e.target[0].value;
-    createPost(subject, "", location.lat, location.lon)
+  const onFinish = (values) => {
+    createPost(values.title, "", location.lat, location.lon)
       .then((data) => {
         console.log("Board created:", data);
         alert("Board created!");
-        // window.location.href = "/";
+        window.location.href = "/";
       })
       .catch((error) => {
         alert("Error creating board!");
       });
+  };
+
+  const onFinishFailed = (errorInfo) => {
+    console.log('Failed:', errorInfo);
   };
 
   const locationWarning = (
@@ -45,12 +46,36 @@ function CreatePost() {
 
   return (
     <div className="create-card">
-    <div className="create-content">
-      <h1 className="block text-gray-700 text-sm font-bold mb-2">New Post</h1>
-        <Space.Compact style={{ width: '50%' }}>
-          <Input type="text" placeholder="Subject" />
-          <Button>Submit Post</Button>
-        </Space.Compact>
+      <div className="create-content">
+        <h1 className="block text-gray-700 text-sm font-bold mb-2">New Post</h1>
+        <Form
+          name="createPostForm"
+          initialValues={{
+            remember: false,
+          }}
+          onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
+          autoComplete="off"
+        >
+          <Space.Compact style={{ width: '50%' }}>
+            <Form.Item
+              name="title"
+              rules={[
+                {
+                  required: true,
+                  message: 'Please input your username!',
+                },
+              ]}
+            >
+              <Input type="text" placeholder="Subject" />
+            </Form.Item>
+            <Form.Item>
+              <Button type="primary" htmlType="submit">
+                Submit Post
+              </Button>
+            </Form.Item>
+          </Space.Compact>
+        </Form>
       </div>
     </div>
   );
