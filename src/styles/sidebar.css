@@ -1,0 +1,42 @@
+
+.sidebar {
+    background-color: #f4f4f4;
+    padding: 20px;
+    width: 250px; 
+  }
+  
+  .logo {
+    margin-bottom: 20px;
+  }
+  
+  .logo img {
+    max-width: 100%;
+  }
+  
+  .sidebar-item {
+    list-style: none;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #37527c;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .sidebar-item:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .sidebar-collapse:hover {
+    background-color: transparent;
+  }
+  
+  .sidebar-icon {
+    margin-right: 10px;
+  }
+  
+
+  .active {
+    font-weight: bold;
+    color: #007bff;
+  }
+  
