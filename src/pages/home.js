@@ -29,7 +29,7 @@ function Home() {
         setPosts(
           Object.values(posts).map((post, i) => (
             <Post
-              post={{ title: post.header, location: "Helsinki", score: 0, image: `/neko/${(i % 3) + 1}.png`}}
+              post={{ title: post.header, location: "Helsinki", score: 0, image: `/imgs/${(i % 5) + 1}.jpeg`}}
             />
           )),
         );
@@ -43,8 +43,9 @@ function Home() {
       <main>
         <header className="header">
           <img style={{
-            height: "150px",
-          }} src="/neko/logo.jpg"></img>
+            height: "80px",
+            padding: "15px",
+          }} src="/imgs/logo.png"></img>
           <SearchBar
             city={selectedCity}
             onCityChange={setSelectedCity}
