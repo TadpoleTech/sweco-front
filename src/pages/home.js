@@ -29,7 +29,7 @@ function Home() {
         setPosts(
           Object.values(posts).map((post, i) => (
             <Post
-              post={{ title: post.header, location: "Helsinki", score: 0, image: `/neko/${i+1}.png`}}
+              post={{ title: post.header, location: "Helsinki", score: 0, image: `/neko/${(i % 3) + 1}.png`}}
             />
           )),
         );
