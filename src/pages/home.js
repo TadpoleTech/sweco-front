@@ -13,14 +13,26 @@ function Home() {
   const [selectedCity, setSelectedCity] = useState("helsinki");
   const [selectedSubArea, setSelectedSubArea] = useState(null);
   const [posts, setPosts] = useState([]);
+
+  const constructPost = (post, i) => {
+    return (
+      <Post
+        post={{
+          title: post.header,
+          location: `${post.city}, ${post.suburb}`,
+          score: 0,
+          image: `/imgs/${(i % 5) + 1}.jpeg`,
+        }}
+      />
+    );
+  }
+
   useEffect(() => {
     if (selectedSubArea) {
       api.getPostsInSuburb(selectedCity, selectedSubArea).then((posts) => {
         setPosts(
-          Object.values(posts).map((post) => (
-            <Post
-              post={{ title: post.header, location: "Helsinki", score: 0, image: "https://via.placeholder.com/150"}}
-            />
+          Object.values(posts).map((post, i) => (
+            constructPost(post, i)
           )),
         );
       });
@@ -28,9 +40,7 @@ function Home() {
       api.getPostsInCity(selectedCity).then((posts) => {
         setPosts(
           Object.values(posts).map((post, i) => (
-            <Post
-              post={{ title: post.header, location: "Helsinki", score: 0, image: `/imgs/${(i % 5) + 1}.jpeg`}}
-            />
+            constructPost(post, i)
           )),
         );
       });
