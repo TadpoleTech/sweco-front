@@ -8,6 +8,7 @@ import YourPosts from "./pages/yourPosts";
 import YourInformation from "./pages/yourInformation";
 import YourVotedPosts from "./pages/yourVotedPosts";
 import Map from "./pages/map";
+import CreatePost from "./pages/createPost";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/yourinformation" element={<YourInformation />} />
         <Route path="/yourvotedposts" element={<YourVotedPosts />} />
         <Route path="/map" element={<Map />} />
+        <Route path="/create-post" element={<CreatePost />} />
       </Routes>
     </Router>
   );

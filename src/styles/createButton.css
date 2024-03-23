@@ -1,4 +1,4 @@
-.create-board {
+.create-post {
   width: 128px;
   height: 128px;
   position: fixed;
@@ -15,6 +15,6 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.create-board:hover {
+.create-post:hover {
   transform: scale(1.1);
 }

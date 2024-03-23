@@ -4,9 +4,14 @@ import "../styles/createButton.css";
 
 function CreateButton(props) {
   return (
-      <button className="create-board" onClick={() => {console.log("asdf")}}>
-        <GoPlus size={60} />
-      </button>
+    <button
+      className="create-post"
+      onClick={() => {
+        window.location.href = "/create-post";
+      }}
+    >
+      <GoPlus size={60} />
+    </button>
   );
 }
 
