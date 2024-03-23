@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { createBoard } from "../api";
+import { createPost } from "../api";
 
 function CreatePost() {
   const [location, setLocation] = useState({ lat: null, lon: null });
@@ -21,7 +21,7 @@ function CreatePost() {
     e.preventDefault();
 
     const subject = e.target[0].value;
-    createBoard(subject, location.lat, location.lon)
+    createPost(subject, "", location.lat, location.lon)
       .then((data) => {
         console.log("Board created:", data);
         alert("Board created!");

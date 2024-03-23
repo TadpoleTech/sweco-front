@@ -58,3 +58,33 @@ export const createUser = async (username, password, birthYear, homeLat, homeLon
     throw error;
   }
 };
+
+export const createPost = async (header, content, posLat, posLon) => {
+  try {
+    const response = await axios.post(`${BASE_URL}posts`, { header, content, pos_lat: posLat, pos_lon: posLon });
+    return response.data;
+  } catch (error) {
+    console.error('Error creating post:', error);
+    throw error;
+  }
+};
+
+export const getPostsInCity = async (cityname) => {
+  try {
+    const response = await axios.get(`${BASE_URL}posts/city/${cityname}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error getting posts in city:', error);
+    throw error;
+  }
+};
+
+export const getPostsInSuburb = async (cityname, suburb) => {
+  try {
+    const response = await axios.get(`${BASE_URL}posts/city/${cityname}/${suburb}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error getting posts in suburb:', error);
+    throw error;
+  }
+};
