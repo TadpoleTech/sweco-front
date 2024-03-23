@@ -3,7 +3,12 @@ import React from "react";
 
 const Post = ({ post }) => {
   return (
-    <div className="post-card">
+    <div
+      style={{
+        backgroundImage: `url(${post.image})`,
+      }}
+      className="post-card"
+    >
       <div className="post-header">
         <span className="post-title">{post.title}</span>
       </div>

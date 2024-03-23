@@ -19,7 +19,7 @@ function Home() {
         setPosts(
           Object.values(posts).map((post) => (
             <Post
-              post={{ title: post.header, location: "Helsinki", score: 0 }}
+              post={{ title: post.header, location: "Helsinki", score: 0, image: "https://via.placeholder.com/150"}}
             />
           )),
         );
@@ -27,9 +27,9 @@ function Home() {
     } else if (selectedCity) {
       api.getPostsInCity(selectedCity).then((posts) => {
         setPosts(
-          Object.values(posts).map((post) => (
+          Object.values(posts).map((post, i) => (
             <Post
-              post={{ title: post.header, location: "Helsinki", score: 0 }}
+              post={{ title: post.header, location: "Helsinki", score: 0, image: `/neko/${i+1}.png`}}
             />
           )),
         );
@@ -42,7 +42,7 @@ function Home() {
       <CreateButton />
       <main>
         <header className="header">
-          <span>logo</span>
+          <img></img>
           <SearchBar
             city={selectedCity}
             onCityChange={setSelectedCity}
