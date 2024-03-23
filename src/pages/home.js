@@ -14,14 +14,28 @@ function Home() {
   const [selectedSubArea, setSelectedSubArea] = useState(null);
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    api.getAllBoards().then((posts) => {
-      setPosts(
-        posts.map((post) => (
-          <Post post={{ title: post.header, location: "Helsinki", score: 0 }} />
-        )),
-      );
-    });
-  }, []);
+    if (selectedSubArea) {
+      api.getPostsInSuburb(selectedCity, selectedSubArea).then((posts) => {
+        setPosts(
+          Object.values(posts).map((post) => (
+            <Post
+              post={{ title: post.header, location: "Helsinki", score: 0 }}
+            />
+          )),
+        );
+      });
+    } else if (selectedCity) {
+      api.getPostsInCity(selectedCity).then((posts) => {
+        setPosts(
+          Object.values(posts).map((post) => (
+            <Post
+              post={{ title: post.header, location: "Helsinki", score: 0 }}
+            />
+          )),
+        );
+      });
+    }
+  }, [selectedCity, selectedSubArea]);
 
   return (
     <div className="home">
