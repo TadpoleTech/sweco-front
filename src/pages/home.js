@@ -42,7 +42,9 @@ function Home() {
       <CreateButton />
       <main>
         <header className="header">
-          <img></img>
+          <img style={{
+            height: "150px",
+          }} src="/neko/logo.jpg"></img>
           <SearchBar
             city={selectedCity}
             onCityChange={setSelectedCity}
